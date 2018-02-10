@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return "hello world";
+        echo "hello world";
     }
 
     public function login()

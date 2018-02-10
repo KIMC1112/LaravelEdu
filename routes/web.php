@@ -19,15 +19,24 @@ Route::get('about', [
     'uses' => 'AboutController@index'
 ]);
 Route::group(['prefix' => 'backstage', 'namespace' => 'Backstage'], function () {
-    Route::get('index', [
+    Route::get('/', [
         'as' => 'backstage.index',
         'uses' => 'IndexController@index'
     ]);
-    Route::get('login', [
+    Route::get('index/', [
+        'as' => 'backstage.index',
+        'uses' => 'IndexController@index'
+    ]);
+    Route::post('login', [
         'as' => 'backstage.index.login',
         'uses' => 'IndexController@login'
     ]);
+    Route::get('user/index', [
+        'as' => 'backstage.user.index',
+        'uses' => 'IndexController@index'
+    ]);
 });
+
 
 
 
