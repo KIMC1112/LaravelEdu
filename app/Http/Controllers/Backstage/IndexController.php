@@ -15,7 +15,7 @@ class IndexController extends Controller
         if (session('username')) {
             return Redirect::to('backstage/user/index');
         } else {
-            return Redirect::to('backstage/index/index');
+            return view('web/backstage/login');
         }
     }
 
@@ -30,7 +30,7 @@ class IndexController extends Controller
         if ($username === $resUsername && $password === $resPassword) {
             $request->session()->put('username', $username);
             $data = $request->session()->all();
-            return Redirect::to('backstage/user/a');
+            return Redirect::to('backstage/user/index');
         } else {
             return false;
         }

@@ -9,7 +9,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        echo "hello world";
+        //处理
+        //验证
+        //渲染
+        return view('web/backstage/admin/index');
     }
 
     public function login()

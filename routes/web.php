@@ -33,7 +33,23 @@ Route::group(['prefix' => 'backstage', 'namespace' => 'Backstage'], function () 
     ]);
     Route::get('user/index', [
         'as' => 'backstage.user.index',
-        'uses' => 'IndexController@index'
+        'uses' => 'UserController@index'
+    ]);
+    Route::get('banner/index', [
+        'as' => 'backstage.banner.index',
+        'uses' => 'BannerController@index'
+    ]);
+    Route::get('banner/edit', [
+        'as' => 'backstage.banner.edit',
+        'uses' => 'BannerController@edit'
+    ]);
+    Route::post('banner/store', [
+        'as' => 'backstage.banner.store',
+        'uses' => 'BannerController@store'
+    ]);
+    Route::delete('banner/delete', [
+        'as' => 'backstage.banner.delete',
+        'uses' => 'BannerController@delete'
     ]);
 });
 
