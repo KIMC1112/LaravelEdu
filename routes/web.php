@@ -47,9 +47,34 @@ Route::group(['prefix' => 'backstage', 'namespace' => 'Backstage'], function () 
         'as' => 'backstage.banner.store',
         'uses' => 'BannerController@store'
     ]);
+    //未完成
     Route::delete('banner/delete', [
         'as' => 'backstage.banner.delete',
         'uses' => 'BannerController@delete'
+    ]);
+    //
+    Route::get('banner/teacher', [
+        'as' => 'backstage.banner.teacher',
+        'uses' => 'BannerController@teacher'
+    ]);
+    /*
+     * bulletin 新闻
+     */
+    Route::get('bulletin', [
+        'as' => 'backstage.bulletin.index',
+        'uses' => 'BulletinController@index'
+    ]);
+    Route::get('bulletin/edit', [
+        'as' => 'backstage.bulletin.edit',
+        'uses' => 'BulletinController@edit'
+    ]);
+    Route::post('bulletin/store', [
+        'as' => 'backstage.bulletin.store',
+        'uses' => 'BulletinController@store'
+    ]);
+    Route::delete('bulletin/delete', [
+        'as' => 'backstage.bulletin.delete',
+        'uses' => 'BulletinController@delete'
     ]);
 });
 

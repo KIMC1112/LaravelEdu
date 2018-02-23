@@ -20,11 +20,13 @@ class BannerController extends Controller
     {
         if($request->get('id'))
         {
+            $category = $request->get('category');
             $id = $request->get('id');
             $banner = Banner::find($id);
-            return view('/web/backstage/banner/edit',['banner'=>$banner]);
+            return view('/web/backstage/banner/edit',['banner'=>$banner,'category'=>$category]);
         }else {
-            return view('/web/backstage/banner/edit');
+            $category = $request->get('category');
+            return view('/web/backstage/banner/edit',['banner'=>'','category'=>$category]);
         }
     }
 
@@ -33,6 +35,14 @@ class BannerController extends Controller
         $bannerName = $request->get('banner_name');
         $bannerSort = $request->get('banner_sort');
         $status = $request->get('status');
+        $content = $request -> get('content');
+        if($request->get('category')== 1)
+        {
+            $category = 1;   //1是banner
+        }else
+            {
+            $category = 0;   //0是teacher
+        }
         $id = $request->get('id');
         $file = $request->file('banner_image');
         if ($file->isValid()) {
@@ -50,6 +60,8 @@ class BannerController extends Controller
         $banner ->bannerName = $bannerName;
         $banner ->bannerSort = $bannerSort;
         $banner ->status = $status;
+        $banner ->category = $category;
+        $banner ->content = $content;
         $banner ->bannerUrl = "/uploads/".$bannerUrl;
         $banner->save();
         return redirect('backstage/banner/index');
@@ -59,4 +71,14 @@ class BannerController extends Controller
     {
         echo 1;
     }
+
+    /*
+     * 主页老师设置方法
+     */
+    public function teacher()
+    {
+        $data = Banner::orderby('updated_at','desc')->paginate(5);
+        return view('web/backstage/teacher/index',['datas'=>$data]);
+    }
+
 }

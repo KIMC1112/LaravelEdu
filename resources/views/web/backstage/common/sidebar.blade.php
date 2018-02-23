@@ -32,7 +32,7 @@
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="#"><i class="fa fa-link"></i> <span>首页</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li><a href="{{route('backstage.bulletin.index')}}"><i class="fa fa-link"></i> <span>新闻设置</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>主页设置</span>
                     <span class="pull-right-container">
@@ -41,7 +41,18 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('backstage.banner.index')}}">主页轮播图</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="{{route('backstage.banner.teacher')}}">主页老师</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-link"></i> <span>新闻设置</span>
+                    <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('backstage.banner.index')}}">新闻</a></li>
+                    <li><a href="{{route('backstage.banner.teacher')}}">主页老师</a></li>
                 </ul>
             </li>
         </ul>
